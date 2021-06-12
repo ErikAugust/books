@@ -23,6 +23,7 @@ export class Quote {
 export default class Book {
     uuid: string;
     title: string;
+    slug: string;
     author: string;
     completed: boolean;
     quotes: Quote[];
@@ -31,6 +32,7 @@ export default class Book {
     constructor(book: any) {
         this.uuid = book.uuid || uuid();
         this.title = book.title;
+        this.slug = book.slug;
         this.author = book.author;
         this.completed = book.completed;
         this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): undefined;

@@ -2,12 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Books } from '@eaj/books'
+import Link from 'next/link'
 
 export default function Collection({ list }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Titles | Books</title>
+        <title>Collection of Titles | Books</title>
         <meta name="description" content="All titles in Collection" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -19,7 +20,7 @@ export default function Collection({ list }) {
         <ul>
           {list.map((value, index) => {
             return <li key={index}>
-              <strong>{value.title}</strong> by {value.author}
+              <strong><Link href={`/books/${value.slug}`}><a>{value.title}</a></Link></strong> by {value.author}
             </li>
           })}
         </ul>

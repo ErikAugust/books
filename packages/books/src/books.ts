@@ -21,6 +21,10 @@ export default class Books {
         return this.list.find(book => book.title === title);
     }
 
+    public findBySlug(slug: string): Book | undefined {
+        return this.list.find(book => book.slug === slug);
+    }
+
     private load() {
         this.file = readFileSync(this.path as string);
         return JSON.parse(this.file.toString());
