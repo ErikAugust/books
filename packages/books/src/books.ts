@@ -2,6 +2,8 @@ import {config} from 'dotenv';
 import { readFileSync } from 'fs';
 import Book from './book';
 
+config();
+
 export const PATH: string | undefined = process.env.BOOKS_PATH;
 
 export default class Books {
