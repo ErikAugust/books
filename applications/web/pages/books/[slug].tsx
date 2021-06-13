@@ -18,9 +18,9 @@ export default function Book({ book }) {
         </h2>
         <h3>{book.author}</h3>
         <div>
-          <h4>Quotes</h4>
+          { book.quotes && <h4>Quotes</h4>}
           <ul>
-          {book.quotes.map((value, index) => {
+          {book.quotes?.map((value, index) => {
             return <li key={index}>
               <i>"{value.text}"</i>
             </li>
