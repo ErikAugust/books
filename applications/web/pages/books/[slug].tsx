@@ -17,6 +17,16 @@ export default function Book({ book }) {
           {book.title}
         </h2>
         <h3>{book.author}</h3>
+        <div>
+          <h4>Quotes</h4>
+          <ul>
+          {book.quotes.map((value, index) => {
+            return <li key={index}>
+              <i>"{value.text}"</i>
+            </li>
+          })}
+        </ul>
+        </div>
       </main>
     </div>
   )
