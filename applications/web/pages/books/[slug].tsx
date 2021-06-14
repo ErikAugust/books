@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Book.module.css'
 import { Books } from '@eaj/books'
 import Layout from '../../components/layout'
+import { Tabs, Tab } from 'react-bootstrap'
+
 
 export default function Book({ book, list }) {
   return (
@@ -14,22 +16,29 @@ export default function Book({ book, list }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className={styles.main}>
-          <h2 className={styles.title}>
-            {book.title}
-          </h2>
-          <h3>{book.author}</h3>
-          <div>
-            { book.quotes && <h4>Quotes</h4>}
-            <ul>
-            {book.quotes?.map((value, index) => {
-              return <li key={index}>
-                <i>"{value.text}"</i> ({value.page})
-              </li>
-            })}
-          </ul>
+        <div className="row featurette">
+          <div className="col-md-7">
+            <h1>{book.title}</h1>
+            <h3><span className="text-muted">{book.author}</span></h3>
+            <p className="lead">{book.description}</p>
+            <Tabs defaultActiveKey="quotes" id="tab">
+              <Tab eventKey="Quotes" title={`Quotes (${book.quotes.length})`}>
+                <div>
+                  <ul>
+                  {book.quotes?.map((value, index) => {
+                    return <li className={styles.quotes} key={index}>
+                      <i>"{value.text}"</i> ({value.page})
+                    </li>
+                  })}
+                </ul>
+                </div>
+              </Tab>
+            </Tabs>
           </div>
-        </main>
+          <div className="col-md-5">
+            <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Generic placeholder image" />
+          </div>
+        </div>
       </div>
     </Layout>
   )

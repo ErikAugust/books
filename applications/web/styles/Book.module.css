@@ -1,0 +1,14 @@
+.container {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+
+.quotes {
+  margin-bottom: 12px;
+}
+
+.image {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}

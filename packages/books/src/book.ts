@@ -25,6 +25,8 @@ export default class Book {
     title: string;
     slug: string;
     author: string;
+    description: string;
+    image: string;
     completed: boolean;
     quotes: Quote[];
     notes: string[];
@@ -34,6 +36,8 @@ export default class Book {
         this.title = book.title;
         this.slug = book.slug;
         this.author = book.author;
+        this.description = book.description;
+        this.image = book.image;
         this.completed = book.completed;
         this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): undefined;
         this.notes = book.notes;
