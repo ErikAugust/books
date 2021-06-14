@@ -1,9 +1,22 @@
+import { Typeahead } from 'react-bootstrap-typeahead'
+import { useRouter } from 'next/router'
+
 const NavSearch = ({ list }) => {
+    const style = { width: '300px' }
+    const router = useRouter();
     return (
-        <form className="form-inline mt-2 mt-md-0">
-            <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <Typeahead
+            style={style}
+            id="typeahead" 
+            onChange={(selected) => {
+                if (selected.length) {
+                    const url = `/books/${selected[0].slug}`;
+                    router.push(url);
+                }
+            }} 
+            options={list} 
+            placeholder="Book title..."
+            labelKey="title" />
     );
 }
 
