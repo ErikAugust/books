@@ -22,12 +22,23 @@ export default function Book({ book, list }) {
             <h3><span className="text-muted">{book.author}</span></h3>
             <p className="lead">{book.description}</p>
             <Tabs defaultActiveKey="quotes" id="tab">
-              <Tab eventKey="Quotes" title={`Quotes (${book.quotes.length})`}>
+              <Tab eventKey="quotes" title={`Quotes (${book.quotes?.length})`}>
                 <div>
                   <ul>
                   {book.quotes?.map((value, index) => {
                     return <li className={styles.quotes} key={index}>
                       <i>"{value.text}"</i> ({value.page})
+                    </li>
+                  })}
+                </ul>
+                </div>
+              </Tab>
+              <Tab eventKey="notes" title={`Notes (${book.notes?.length})`}>
+                <div>
+                  <ul>
+                  {book.notes?.map((value, index) => {
+                    return <li className={styles.quotes} key={index}>
+                      {value.text}
                     </li>
                   })}
                 </ul>
