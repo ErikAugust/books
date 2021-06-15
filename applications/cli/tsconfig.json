@@ -2,13 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "importHelpers": true,
-    "module": "commonjs",
     "baseUrl": "../..",
     "paths": {
       "@eaj/*": [
         "packages/*/src"
       ]
     },
+    "module": "commonjs",
+    "rootDirs": ["src"],
     "outDir": "lib",
     "strict": true,
     "target": "es2017"
