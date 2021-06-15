@@ -28,8 +28,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`books add [FILE]`](#books-add-file)
 * [`books hello [FILE]`](#books-hello-file)
 * [`books help [COMMAND]`](#books-help-command)
+
+## `books add [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ books add [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/add.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/add.ts)_
 
 ## `books hello [FILE]`
 
