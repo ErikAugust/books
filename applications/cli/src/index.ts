@@ -1,4 +1,5 @@
 import {Command, flags} from '@oclif/command'
+import { Books } from '@eaj/books'
 
 class EajBooksCli extends Command {
   static description = 'describe the command here'
