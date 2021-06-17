@@ -25,6 +25,17 @@ export default class Books {
         return this.list.find(book => book.slug === slug);
     }
 
+    public findByShortCode(shortcode: string): Book | undefined {
+        for (const item of this.list) {
+            // Base case:
+            const condition = item.uuid.slice(0, 6) === shortcode;
+            if (condition) {
+                return item;
+            }
+        }
+          return undefined;
+    }
+
     private load() {
         this.file = readFileSync(this.path as string);
         return JSON.parse(this.file.toString());
