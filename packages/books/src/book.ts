@@ -26,6 +26,7 @@ export default class Book {
     slug: string;
     author: string;
     description: string;
+    pages: number;
     image: string;
     completed: boolean;
     quotes: Quote[];
@@ -37,9 +38,19 @@ export default class Book {
         this.slug = book.slug;
         this.author = book.author;
         this.description = book.description;
+        this.pages = book.pages;
         this.image = book.image;
         this.completed = book.completed;
-        this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): undefined;
-        this.notes = book.notes;
+        this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): [];
+        this.notes = book.notes || [];
+    }
+
+
+    /**
+     * Returns the six character UUID shortcode for a given item
+     * @returns {string}
+     */
+    public getUuidShortcode(): string {
+        return this.uuid.slice(0, 6);
     }
 }

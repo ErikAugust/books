@@ -1,5 +1,5 @@
 import {config} from 'dotenv';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import Book from './book';
 
 config();
@@ -29,4 +29,11 @@ export default class Books {
         this.file = readFileSync(this.path as string);
         return JSON.parse(this.file.toString());
     }
+
+    public save(): void {
+        const books = {
+            list: this.list
+        };
+        writeFileSync(this.path, JSON.stringify(books, null, 2));
+      }
 }
