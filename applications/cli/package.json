@@ -13,6 +13,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "chalk": "^4.1.1",
+    "cli-table": "^0.3.6",
     "inquirer": "^8.1.0",
     "tslib": "^1"
   },
