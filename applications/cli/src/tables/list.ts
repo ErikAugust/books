@@ -6,7 +6,7 @@ import { Book } from '@eaj/books';
 export function getListTable(list: Array<Book>) {
     const table = new Table({
       head: [
-        chalk.greenBright('uuid'),
+        chalk.greenBright('shortcode'),
         chalk.greenBright('title'),
         chalk.greenBright('author')
       ]

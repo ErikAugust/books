@@ -31,7 +31,8 @@ USAGE
 * [`books add`](#books-add)
 * [`books hello [FILE]`](#books-hello-file)
 * [`books help [COMMAND]`](#books-help-command)
-* [`books list [FILE]`](#books-list-file)
+* [`books list`](#books-list)
+* [`books quote [FILE]`](#books-quote-file)
 
 ## `books add`
 
@@ -81,13 +82,24 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `books list [FILE]`
+## `books list`
+
+list all books
+
+```
+USAGE
+  $ books list
+```
+
+_See code: [src/commands/list.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/list.ts)_
+
+## `books quote [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ books list [FILE]
+  $ books quote [FILE]
 
 OPTIONS
   -f, --force
@@ -95,5 +107,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/list.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/list.ts)_
+_See code: [src/commands/quote.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/quote.ts)_
 <!-- commandsstop -->

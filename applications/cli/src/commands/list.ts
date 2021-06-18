@@ -1,9 +1,9 @@
-import {Command, flags} from '@oclif/command'
+import {Command, flags} from '@oclif/command';
 import { Books } from '@eaj/books';
 import { getListTable } from '../tables/list';
 
 export default class List extends Command {
-  static description = 'list all books'
+  static description = 'lists all books';
 
   async run() {
     const books = new Books();

@@ -45,6 +45,17 @@ export default class Book {
         this.notes = book.notes || [];
     }
 
+    /**
+     * Adds quote to list of quotes
+     * @param {Quote} quote 
+     */
+    public addQuote(quote: Object) {
+        this.quotes.push(new Quote(quote));
+    }
+
+    public addNote(note: string) {
+        this.notes.push(note);
+    }
 
     /**
      * Returns the six character UUID shortcode for a given item
