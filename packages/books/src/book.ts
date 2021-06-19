@@ -17,6 +17,20 @@ export class Quote {
 }
 
 /**
+ * @class Note
+ * @author Erik August Johnson <erik@eaj.io>
+ */
+export class Note {
+    text: string;
+    createdAt: string;
+
+    constructor(note: any) {
+        this.createdAt = note.createdAt || new Date().toISOString();
+        this.text = note.text;
+    }
+}
+
+/**
  * @class Book
  * @author Erik August Johnson <erik@eaj.io>
  */
@@ -32,7 +46,7 @@ export default class Book {
     completed: boolean;
     completedAt: string;
     quotes: Quote[];
-    notes: string[];
+    notes: Note[];
 
     constructor(book: any) {
         this.uuid = book.uuid || uuid();
@@ -51,7 +65,7 @@ export default class Book {
 
     /**
      * Adds quote to list of quotes
-     * @param {Quote} quote 
+     * @param {Object} quote 
      */
     public addQuote(quote: Object) {
         this.quotes.push(new Quote(quote));
@@ -59,10 +73,10 @@ export default class Book {
 
     /**
      * Adds note to list of notes
-     * @param {string} note 
+     * @param {Object} note 
      */
-    public addNote(note: string) {
-        this.notes.push(note);
+    public addNote(note: Object) {
+        this.notes.push(new Note(note));
     }
 
     /**
