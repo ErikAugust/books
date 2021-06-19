@@ -1,5 +1,4 @@
-@eaj/books-cli
-==============
+# @eaj/books-cli
 
 CLI for the Books system
 
@@ -9,10 +8,13 @@ CLI for the Books system
 [![License](https://img.shields.io/npm/l/@eaj/books-cli.svg)](https://github.com/ErikAugust/books/blob/master/package.json)
 
 <!-- toc -->
+* [@eaj/books-cli](#eajbooks-cli)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
 ```sh-session
 $ npm install -g @eaj/books-cli
@@ -26,9 +28,12 @@ USAGE
 ...
 ```
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
 * [`books add`](#books-add)
+* [`books complete SHORTCODE`](#books-complete-shortcode)
 * [`books help [COMMAND]`](#books-help-command)
 * [`books list`](#books-list)
 * [`books quote SHORTCODE`](#books-quote-shortcode)
@@ -43,6 +48,20 @@ USAGE
 ```
 
 _See code: [src/commands/add.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/add.ts)_
+
+## `books complete SHORTCODE`
+
+sets a book to complete
+
+```
+USAGE
+  $ books complete SHORTCODE
+
+ARGUMENTS
+  SHORTCODE  uuid shortcode of book
+```
+
+_See code: [src/commands/complete.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/complete.ts)_
 
 ## `books help [COMMAND]`
 

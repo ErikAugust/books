@@ -1,12 +1,11 @@
 import {Command, flags} from '@oclif/command';
 import { Books } from '@eaj/books';
-const chalk = require('chalk');
 import { displayAsciiArt } from '../misc/ascii';
 
-import { promptAddQuote } from '../prompts/quote';
+const chalk = require('chalk');
 
-export default class Quote extends Command {
-  static description = 'adds a quote from book';
+export default class Complete extends Command {
+  static description = 'sets a book to complete';
 
   static args = [
     {
@@ -16,8 +15,9 @@ export default class Quote extends Command {
     }
   ];
 
+
   async run() {
-    const {args} = this.parse(Quote);
+    const {args} = this.parse(Complete)
     const shortcode = args.shortcode?.toLowerCase();
 
     // Find the book by shortcode:
@@ -25,14 +25,11 @@ export default class Quote extends Command {
     const book = books.findByShortCode(shortcode);
 
     if (book) {
-      this.log(`Adding a quote for ${chalk.bold(book.title)}:`);
-      // Prompt the user to enter 
-      const quote = await promptAddQuote();
-      book.addQuote(quote);
+      book.completed = true;
+      book.completedAt = new Date().toISOString();
       books.save();
       await displayAsciiArt('Books');
-      this.log(`Quote was successfully saved to ${chalk.bold(book.title)}`);
-      
+      this.log(`${chalk.bold(book.title)} is set to completed. Congrats! 🎉`);      
     } else {
       this.log(`A book could not be found from the shortcode: ${chalk.bold(shortcode)}`)
     }
