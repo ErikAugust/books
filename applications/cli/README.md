@@ -29,10 +29,9 @@ USAGE
 # Commands
 <!-- commands -->
 * [`books add`](#books-add)
-* [`books hello [FILE]`](#books-hello-file)
 * [`books help [COMMAND]`](#books-help-command)
 * [`books list`](#books-list)
-* [`books quote [FILE]`](#books-quote-file)
+* [`books quote SHORTCODE`](#books-quote-shortcode)
 
 ## `books add`
 
@@ -44,26 +43,6 @@ USAGE
 ```
 
 _See code: [src/commands/add.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/add.ts)_
-
-## `books hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ books hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ books hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `books help [COMMAND]`
 
@@ -84,7 +63,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2
 
 ## `books list`
 
-list all books
+lists all books
 
 ```
 USAGE
@@ -93,18 +72,16 @@ USAGE
 
 _See code: [src/commands/list.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/list.ts)_
 
-## `books quote [FILE]`
+## `books quote SHORTCODE`
 
-describe the command here
+adds a quote from book
 
 ```
 USAGE
-  $ books quote [FILE]
+  $ books quote SHORTCODE
 
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+ARGUMENTS
+  SHORTCODE  uuid shortcode of book
 ```
 
 _See code: [src/commands/quote.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/quote.ts)_

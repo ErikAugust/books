@@ -6,12 +6,12 @@ import { v4 as uuid } from 'uuid';
  */
 export class Quote {
     text: string;
-    notes: string[];
     page: number;
+    createdAt: string;
 
     constructor(quote: any) {
+        this.createdAt = quote.createdAt || new Date().toISOString();
         this.text = quote.text;
-        this.notes = quote.notes;
         this.page = quote.page;
     }
 }
@@ -22,6 +22,7 @@ export class Quote {
  */
 export default class Book {
     uuid: string;
+    createdAt: string;
     title: string;
     slug: string;
     author: string;
@@ -29,11 +30,13 @@ export default class Book {
     pages: number;
     image: string;
     completed: boolean;
+    completedAt: string;
     quotes: Quote[];
     notes: string[];
 
     constructor(book: any) {
         this.uuid = book.uuid || uuid();
+        this.createdAt = book.createdAt || new Date().toISOString()
         this.title = book.title;
         this.slug = book.slug;
         this.author = book.author;
@@ -41,6 +44,7 @@ export default class Book {
         this.pages = book.pages;
         this.image = book.image;
         this.completed = book.completed;
+        this.completedAt = book.completedAt;
         this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): [];
         this.notes = book.notes || [];
     }
@@ -53,6 +57,10 @@ export default class Book {
         this.quotes.push(new Quote(quote));
     }
 
+    /**
+     * Adds note to list of notes
+     * @param {string} note 
+     */
     public addNote(note: string) {
         this.notes.push(note);
     }
