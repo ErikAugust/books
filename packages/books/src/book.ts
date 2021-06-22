@@ -59,8 +59,8 @@ export default class Book {
         this.image = book.image;
         this.completed = book.completed;
         this.completedAt = book.completedAt;
-        this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)): [];
-        this.notes = book.notes || [];
+        this.quotes = book.quotes ? book.quotes.map((quote: any) => new Quote(quote)) : [];
+        this.notes = book.notes ? book.notes.map((note: any) => new Note(note)) : [];
     }
 
     /**
