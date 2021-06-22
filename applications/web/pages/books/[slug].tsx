@@ -3,10 +3,13 @@ import Image from 'next/image'
 import styles from '../../styles/Book.module.css'
 import { Books } from '@eaj/books'
 import Layout from '../../components/layout'
-import { Tabs, Tab } from 'react-bootstrap'
+import { Tabs, Tab, Alert } from 'react-bootstrap'
 
 
 export default function Book({ book, list }) {
+  function formatDate(date) {
+    return new Date(date).toDateString();
+  }
   return (
     <Layout list={list}>
       <div className={styles.container}>
@@ -47,7 +50,10 @@ export default function Book({ book, list }) {
             </Tabs>
           </div>
           <div className="col-md-5">
-            <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Generic placeholder image" />
+            { book.completed && <Alert variant="success">
+                Completed: { formatDate(book.completedAt) }
+              </Alert> }
+            <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Placeholder image" />
           </div>
         </div>
       </div>
