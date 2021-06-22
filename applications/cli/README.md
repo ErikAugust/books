@@ -36,7 +36,8 @@ USAGE
 * [`books complete SHORTCODE`](#books-complete-shortcode)
 * [`books help [COMMAND]`](#books-help-command)
 * [`books list`](#books-list)
-* [`books quote SHORTCODE`](#books-quote-shortcode)
+* [`books note [SHORTCODE]`](#books-note-shortcode)
+* [`books quote [SHORTCODE]`](#books-quote-shortcode)
 
 ## `books add`
 
@@ -91,13 +92,27 @@ USAGE
 
 _See code: [src/commands/list.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/list.ts)_
 
-## `books quote SHORTCODE`
+## `books note [SHORTCODE]`
+
+adds a note to book
+
+```
+USAGE
+  $ books note [SHORTCODE]
+
+ARGUMENTS
+  SHORTCODE  uuid shortcode of book
+```
+
+_See code: [src/commands/note.ts](https://github.com/ErikAugust/books/blob/v0.0.0/src/commands/note.ts)_
+
+## `books quote [SHORTCODE]`
 
 adds a quote from book
 
 ```
 USAGE
-  $ books quote SHORTCODE
+  $ books quote [SHORTCODE]
 
 ARGUMENTS
   SHORTCODE  uuid shortcode of book
