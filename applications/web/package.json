@@ -10,6 +10,7 @@
   "dependencies": {
     "@eaj/books": "*",
     "bootstrap": "4.6.0",
+    "date-fns": "^2.22.1",
     "next": "10.2.3",
     "react": "17.0.2",
     "react-bootstrap": "^1.6.1",

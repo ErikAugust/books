@@ -1,14 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../../styles/Book.module.css'
 import { Books } from '@eaj/books'
 import Layout from '../../components/layout'
 import { Tabs, Tab, Alert } from 'react-bootstrap'
+import { format } from 'date-fns';
 
 
 export default function Book({ book, list }) {
   function formatDate(date) {
-    return new Date(date).toDateString();
+    return format(new Date(date), 'MMMM d, yyyy');
   }
   return (
     <Layout list={list}>
@@ -51,7 +51,7 @@ export default function Book({ book, list }) {
           </div>
           <div className="col-md-5">
             { book.completed && <Alert variant="success">
-                Completed: { formatDate(book.completedAt) }
+                Completed on { formatDate(book.completedAt) }
               </Alert> }
             <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Placeholder image" />
           </div>
