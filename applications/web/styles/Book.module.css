@@ -12,3 +12,7 @@
   height: 500px;
   object-fit: cover;
 }
+
+.actions {
+  margin-top: 12px;
+}

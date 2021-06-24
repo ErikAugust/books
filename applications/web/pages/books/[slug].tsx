@@ -1,12 +1,18 @@
 import Head from 'next/head'
+import { useState } from 'react';
 import styles from '../../styles/Book.module.css'
 import { Books } from '@eaj/books'
 import Layout from '../../components/layout'
-import { Tabs, Tab, Alert } from 'react-bootstrap'
+import { Tabs, Tab, Alert, Button } from 'react-bootstrap'
 import { format } from 'date-fns';
+import AddQuoteModal from '../../components/add-quote-modal';
 
 
 export default function Book({ book, list }) {
+  const [showQuotesModal, setShowQuotesModal] = useState(false);
+
+  const handleShow = () => setShowQuotesModal(true);
+
   function formatDate(date) {
     return format(new Date(date), 'MMMM d, yyyy');
   }
@@ -23,8 +29,10 @@ export default function Book({ book, list }) {
           <div className="col-md-7">
             <h1>{book.title}</h1>
             <h3><span className="text-muted">{book.author}</span></h3>
-            <p className="lead">{book.description}</p>
-            <Tabs defaultActiveKey="quotes" id="tab">
+            <Tabs defaultActiveKey="description" id="tab">
+              <Tab eventKey="description" title="Description">
+              <p className="lead">{book.description}</p>
+              </Tab>
               <Tab eventKey="quotes" title={`Quotes (${book.quotes?.length})`}>
                 <div>
                   <ul>
@@ -54,6 +62,16 @@ export default function Book({ book, list }) {
                 Completed on { formatDate(book.completedAt) }
               </Alert> }
             <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Placeholder image" />
+            <div className={styles.actions}>
+              <Button variant="outline-secondary" size="sm" onClick={handleShow}>
+                Add Quote
+              </Button>
+              <AddQuoteModal 
+                book={book} 
+                show={showQuotesModal} 
+                setShow={setShowQuotesModal} 
+              />
+            </div>
           </div>
         </div>
       </div>
