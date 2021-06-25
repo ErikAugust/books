@@ -1,12 +1,11 @@
 import { Modal, Button, Form, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import Router from 'next/router';
 import axios from 'axios';
 
 export default function AddQuoteModal({ show, setShow, book }) {
     const handleClose = () => setShow(false);
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     
     const onSubmit = async (data) => {
       // Send to back-end for saving to JSON file
@@ -20,6 +19,7 @@ export default function AddQuoteModal({ show, setShow, book }) {
       })
       // Push to UI for an update
       book.quotes.push({ text: data.text, page: data.page});
+      reset();
       handleClose();
     }
   
