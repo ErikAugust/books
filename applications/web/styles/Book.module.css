@@ -5,6 +5,7 @@
 
 .quotes {
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .image {
@@ -14,5 +15,9 @@
 }
 
 .actions {
+  margin-top: 12px;
+}
+
+.description {
   margin-top: 12px;
 }

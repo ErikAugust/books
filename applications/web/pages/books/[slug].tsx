@@ -6,12 +6,16 @@ import Layout from '../../components/layout'
 import { Tabs, Tab, Alert, Button } from 'react-bootstrap'
 import { format } from 'date-fns';
 import AddQuoteModal from '../../components/add-quote-modal';
+import AddNoteModal from '../../components/add-note-modal';
 
 
 export default function Book({ book, list }) {
-  const [showQuotesModal, setShowQuotesModal] = useState(false);
+  const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const [showNoteModal, setShowNoteModal] = useState(false);
 
-  const handleShow = () => setShowQuotesModal(true);
+  const handleShowQuoteModal = () => setShowQuoteModal(true);
+  const handleShowNoteModal = () => setShowNoteModal(true);
+
 
   function formatDate(date) {
     return format(new Date(date), 'MMMM d, yyyy');
@@ -31,14 +35,14 @@ export default function Book({ book, list }) {
             <h3><span className="text-muted">{book.author}</span></h3>
             <Tabs defaultActiveKey="description" id="tab">
               <Tab eventKey="description" title="Description">
-              <p className="lead">{book.description}</p>
+              <p className={`${styles.description} lead`}>{book.description}</p>
               </Tab>
               <Tab eventKey="quotes" title={`Quotes (${book.quotes?.length})`}>
                 <div>
                   <ul>
                   {book.quotes?.map((value, index) => {
                     return <li className={styles.quotes} key={index}>
-                      <i>"{value.text}"</i> ({value.page})
+                      "{value.text}" ({value.page})
                     </li>
                   })}
                 </ul>
@@ -63,13 +67,25 @@ export default function Book({ book, list }) {
               </Alert> }
             <img className={`img-fluid mx-auto ${styles.image}`} src={book.image} alt="Placeholder image" />
             <div className={styles.actions}>
-              <Button variant="outline-secondary" size="sm" onClick={handleShow}>
+              <Button variant="outline-secondary" size="sm" onClick={handleShowQuoteModal}>
                 Add Quote
+              </Button>
+              <Button 
+                style={{ 'marginLeft': '12px'}} 
+                variant="outline-secondary" 
+                size="sm" 
+                onClick={handleShowNoteModal}>
+                Add Note
               </Button>
               <AddQuoteModal 
                 book={book} 
-                show={showQuotesModal} 
-                setShow={setShowQuotesModal} 
+                show={showQuoteModal} 
+                setShow={setShowQuoteModal} 
+              />
+              <AddNoteModal 
+                book={book} 
+                show={showNoteModal} 
+                setShow={setShowNoteModal} 
               />
             </div>
           </div>
