@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import { useState } from 'react';
-import styles from '../../styles/Book.module.css'
-import { Books } from '@eaj/books'
-import Layout from '../../components/layout'
-import { Tabs, Tab, Alert, Button } from 'react-bootstrap'
+import { Books } from '@eaj/books';
+import { Tabs, Tab, Alert, Button } from 'react-bootstrap';
 import { format } from 'date-fns';
+import Linkify from 'react-linkify';
+
+import styles from '../../styles/Book.module.css';
+import Layout from '../../components/layout'
 import AddQuoteModal from '../../components/add-quote-modal';
 import AddNoteModal from '../../components/add-note-modal';
 
@@ -53,7 +55,7 @@ export default function Book({ book, list }) {
                   <ul>
                   {book.notes?.map((value, index) => {
                     return <li className={styles.quotes} key={index}>
-                      {value.text}
+                      <Linkify>{value.text}</Linkify>
                     </li>
                   })}
                 </ul>
